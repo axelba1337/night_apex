@@ -1,0 +1,117 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://cars/player/vehicle_controller.gd" id="1_controller"]
+
+[sub_resource type="BoxShape3D" id="Shape_chassis"]
+size = Vector3(1.8, 0.85, 4.2)
+
+[sub_resource type="StandardMaterial3D" id="Material_body"]
+albedo_color = Color(0.08, 0.65, 0.85, 1)
+roughness = 0.7
+
+[sub_resource type="BoxMesh" id="Mesh_body"]
+material = SubResource("Material_body")
+size = Vector3(1.8, 0.85, 4.2)
+
+[sub_resource type="StandardMaterial3D" id="Material_wheel"]
+albedo_color = Color(0.035, 0.04, 0.045, 1)
+roughness = 1.0
+
+[sub_resource type="CylinderMesh" id="Mesh_wheel"]
+material = SubResource("Material_wheel")
+top_radius = 0.34
+bottom_radius = 0.34
+height = 0.26
+radial_segments = 16
+rings = 1
+
+[node name="PlayerCar" type="VehicleBody3D"]
+mass = 1100.0
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, -0.1, 0)
+continuous_cd = true
+script = ExtResource("1_controller")
+
+[node name="ChassisCollision" type="CollisionShape3D" parent="."]
+position = Vector3(0, 0.4, 0)
+shape = SubResource("Shape_chassis")
+
+[node name="CarBodyMesh" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.4, 0)
+mesh = SubResource("Mesh_body")
+
+; Rotate each wheel 180 degrees so positive engine force drives toward -Z.
+[node name="WheelFrontLeft" type="VehicleWheel3D" parent="."]
+position = Vector3(-0.95, 0, -1.4)
+rotation_degrees = Vector3(0, 180, 0)
+use_as_steering = true
+wheel_radius = 0.34
+wheel_rest_length = 0.25
+wheel_friction_slip = 2.5
+wheel_roll_influence = 0.1
+suspension_travel = 0.2
+suspension_stiffness = 40.0
+suspension_max_force = 8000.0
+damping_compression = 2.3
+damping_relaxation = 3.5
+
+[node name="WheelMesh" type="MeshInstance3D" parent="WheelFrontLeft"]
+rotation_degrees = Vector3(0, 0, 90)
+mesh = SubResource("Mesh_wheel")
+
+[node name="WheelFrontRight" type="VehicleWheel3D" parent="."]
+position = Vector3(0.95, 0, -1.4)
+rotation_degrees = Vector3(0, 180, 0)
+use_as_steering = true
+wheel_radius = 0.34
+wheel_rest_length = 0.25
+wheel_friction_slip = 2.5
+wheel_roll_influence = 0.1
+suspension_travel = 0.2
+suspension_stiffness = 40.0
+suspension_max_force = 8000.0
+damping_compression = 2.3
+damping_relaxation = 3.5
+
+[node name="WheelMesh" type="MeshInstance3D" parent="WheelFrontRight"]
+rotation_degrees = Vector3(0, 0, 90)
+mesh = SubResource("Mesh_wheel")
+
+[node name="WheelRearLeft" type="VehicleWheel3D" parent="."]
+position = Vector3(-0.95, 0, 1.4)
+rotation_degrees = Vector3(0, 180, 0)
+use_as_traction = true
+wheel_radius = 0.34
+wheel_rest_length = 0.25
+wheel_friction_slip = 2.5
+wheel_roll_influence = 0.1
+suspension_travel = 0.2
+suspension_stiffness = 40.0
+suspension_max_force = 8000.0
+damping_compression = 2.3
+damping_relaxation = 3.5
+
+[node name="WheelMesh" type="MeshInstance3D" parent="WheelRearLeft"]
+rotation_degrees = Vector3(0, 0, 90)
+mesh = SubResource("Mesh_wheel")
+
+[node name="WheelRearRight" type="VehicleWheel3D" parent="."]
+position = Vector3(0.95, 0, 1.4)
+rotation_degrees = Vector3(0, 180, 0)
+use_as_traction = true
+wheel_radius = 0.34
+wheel_rest_length = 0.25
+wheel_friction_slip = 2.5
+wheel_roll_influence = 0.1
+suspension_travel = 0.2
+suspension_stiffness = 40.0
+suspension_max_force = 8000.0
+damping_compression = 2.3
+damping_relaxation = 3.5
+
+[node name="WheelMesh" type="MeshInstance3D" parent="WheelRearRight"]
+rotation_degrees = Vector3(0, 0, 90)
+mesh = SubResource("Mesh_wheel")
+
+[node name="CameraTarget" type="Marker3D" parent="."]
+position = Vector3(0, 0.65, 0)
