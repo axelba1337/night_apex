@@ -1,24 +1,7 @@
-# Godot generated data
+# Godot 4+ specific ignores
 .godot/
-
-# Blender backups
-*.blend1
-*.blend2
-*.blend@
-
-# Builds
-builds/*
-!builds/.gdignore
-
-# Captured video
-captures/videos/*
-
-# OS junk
-Thumbs.db
-Desktop.ini
-.DS_Store
-
-# Temporary files
+/android/
+s
 *.tmp
 *.temp
 *.log

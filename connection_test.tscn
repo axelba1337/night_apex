@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dfjs6cu46myek"]
+
+[ext_resource type="Script" uid="uid://dftwtmn6ipvhn" path="res://connection_test.gd" id="1_jwi64"]
+
+[node name="ConnectionTest" type="Node" unique_id=1582924957]
+script = ExtResource("1_jwi64")
