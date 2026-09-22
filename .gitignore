@@ -1,7 +1,25 @@
-# Godot 4+ specific ignores
+# Godot generated data
 .godot/
 /android/
-s
+
+# Blender backup files
+*.blend1
+*.blend2
+*.blend@
+
+# Build output
+builds/*
+!builds/.gdignore
+
+# Captured video
+captures/videos/*
+
+# OS junk
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Temporary files
 *.tmp
 *.temp
 *.log
