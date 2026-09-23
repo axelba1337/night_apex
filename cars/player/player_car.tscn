@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=9 format=3]
 
 [ext_resource type="Script" path="res://cars/player/vehicle_controller.gd" id="1_controller"]
+[ext_resource type="PackedScene" path="res://cars/shared/headlights.tscn" id="2_headlights"]
+[ext_resource type="PackedScene" path="res://cars/shared/effects/tire_smoke.tscn" id="3_smoke"]
 
 [sub_resource type="BoxShape3D" id="Shape_chassis"]
 size = Vector3(1.8, 0.85, 4.2)
@@ -115,3 +117,21 @@ mesh = SubResource("Mesh_wheel")
 
 [node name="CameraTarget" type="Marker3D" parent="."]
 position = Vector3(0, 0.65, 0)
+
+[node name="Headlights" parent="." instance=ExtResource("2_headlights")]
+
+[node name="RimMount" type="Node3D" parent="WheelFrontLeft"]
+position = Vector3(0.16, 0, 0)
+
+[node name="RimMount" type="Node3D" parent="WheelFrontRight"]
+position = Vector3(-0.16, 0, 0)
+
+[node name="RimMount" type="Node3D" parent="WheelRearLeft"]
+position = Vector3(0.16, 0, 0)
+
+[node name="RimMount" type="Node3D" parent="WheelRearRight"]
+position = Vector3(-0.16, 0, 0)
+
+[node name="TireSmokeLeft" parent="WheelRearLeft" instance=ExtResource("3_smoke")]
+
+[node name="TireSmokeRight" parent="WheelRearRight" instance=ExtResource("3_smoke")]

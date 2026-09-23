@@ -1,15 +1,22 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_game"]
-[ext_resource type="PackedScene" path="res://tracks/test_track/test_track.tscn" id="2_track"]
-[ext_resource type="PackedScene" path="res://cars/player/player_car.tscn" id="3_car"]
 [ext_resource type="PackedScene" path="res://camera/chase_camera.tscn" id="4_camera"]
+[ext_resource type="Script" path="res://systems/race/race_manager.gd" id="5_race"]
+[ext_resource type="PackedScene" path="res://ui/hud/hud.tscn" id="6_hud"]
+[ext_resource type="PackedScene" path="res://ui/menus/pause_menu.tscn" id="7_pause"]
+[ext_resource type="PackedScene" path="res://ui/results/result_screen.tscn" id="8_result"]
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_game")
 
-[node name="TestTrack" parent="." instance=ExtResource("2_track")]
-
-[node name="PlayerCar" parent="." instance=ExtResource("3_car")]
-
 [node name="ChaseCamera" parent="." instance=ExtResource("4_camera")]
+
+[node name="RaceManager" type="Node" parent="."]
+script = ExtResource("5_race")
+
+[node name="HUD" parent="." instance=ExtResource("6_hud")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("7_pause")]
+
+[node name="ResultScreen" parent="." instance=ExtResource("8_result")]
