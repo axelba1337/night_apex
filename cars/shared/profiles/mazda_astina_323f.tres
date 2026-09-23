@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VehicleHandlingProfile" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://cars/shared/vehicle_handling_profile.gd" id="1_profile"]
+
+[resource]
+script = ExtResource("1_profile")
+mass = 1050.0
+engine_force_max = 1500.0
+max_steer_degrees = 31.0
+steering_response = 5.8
+high_speed_steering_factor = 0.4
+steering_fade_speed_kph = 90.0

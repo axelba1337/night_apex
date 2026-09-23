@@ -1,0 +1,46 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="PackedScene" path="res://cars/player/player_car.tscn" id="1_base"]
+[ext_resource type="Resource" path="res://cars/shared/profiles/mitsubishi_galant.tres" id="2_profile"]
+[ext_resource type="Script" path="res://cars/shared/vehicle_appearance.gd" id="3_appearance"]
+[ext_resource type="PackedScene" path="res://cars/shared/underglow.tscn" id="4_glow"]
+[ext_resource type="Script" path="res://cars/shared/car_customization.gd" id="5_customization"]
+
+[sub_resource type="StandardMaterial3D" id="Paint"]
+albedo_color = Color(0.5, 0.1, 0.1, 1)
+roughness = 0.5
+
+[sub_resource type="BoxMesh" id="PlaceholderBody"]
+material = SubResource("Paint")
+size = Vector3(1.82, 0.85, 4.5)
+
+[sub_resource type="BoxShape3D" id="Chassis"]
+size = Vector3(1.82, 0.85, 4.5)
+
+[sub_resource type="Resource" id="Customization"]
+resource_local_to_scene = true
+script = ExtResource("5_customization")
+body_hue = 0.62
+
+[node name="MitsubishiGalant" instance=ExtResource("1_base")]
+handling_profile = ExtResource("2_profile")
+
+[node name="ChassisCollision" parent="." index="0"]
+shape = SubResource("Chassis")
+
+[node name="CarBodyMesh" parent="." index="1"]
+visible = false
+
+[node name="Headlights" parent="." index="7"]
+position = Vector3(0, 0, -0.15)
+
+[node name="BodyVisual" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.4, 0)
+mesh = SubResource("PlaceholderBody")
+
+[node name="UnderglowRoot" parent="." instance=ExtResource("4_glow")]
+
+[node name="Appearance" type="Node3D" parent="."]
+script = ExtResource("3_appearance")
+customization = SubResource("Customization")
+body_paint_target = NodePath("../BodyVisual")

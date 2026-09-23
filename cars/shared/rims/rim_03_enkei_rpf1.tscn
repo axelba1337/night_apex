@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3]
+
+[sub_resource type="StandardMaterial3D" id="Metal"]
+albedo_color = Color(0.65, 0.68, 0.72, 1)
+metallic = 0.6
+roughness = 0.5
+
+[sub_resource type="TorusMesh" id="Ring"]
+material = SubResource("Metal")
+inner_radius = 0.19
+outer_radius = 0.25
+rings = 16
+ring_segments = 8
+
+[sub_resource type="BoxMesh" id="Spoke"]
+material = SubResource("Metal")
+size = Vector3(0.05, 0.04, 0.42)
+
+[node name="Rim" type="Node3D"]
+
+[node name="Ring" type="MeshInstance3D" parent="."]
+rotation_degrees = Vector3(0, 0, 90)
+mesh = SubResource("Ring")
+
+[node name="Spoke0" type="MeshInstance3D" parent="."]
+rotation_degrees = Vector3(0, 0, 0)
+mesh = SubResource("Spoke")
+
+[node name="Spoke1" type="MeshInstance3D" parent="."]
+rotation_degrees = Vector3(15, 0, 0)
+mesh = SubResource("Spoke")
+
+[node name="Spoke2" type="MeshInstance3D" parent="."]
+rotation_degrees = Vector3(30, 0, 0)
+mesh = SubResource("Spoke")
+
+[node name="Spoke3" type="MeshInstance3D" parent="."]
+rotation_degrees = Vector3(45, 0, 0)
+mesh = SubResource("Spoke")
+
+[node name="Spoke4" type="MeshInstance3D" parent="."]
+rotation_degrees = Vector3(60, 0, 0)
+mesh = SubResource("Spoke")
+
+[node name="Spoke5" type="MeshInstance3D" parent="."]
+rotation_degrees = Vector3(75, 0, 0)
+mesh = SubResource("Spoke")
+
+[node name="Spoke6" type="MeshInstance3D" parent="."]
+rotation_degrees = Vector3(90, 0, 0)
+mesh = SubResource("Spoke")
+
+[node name="Spoke7" type="MeshInstance3D" parent="."]
+rotation_degrees = Vector3(105, 0, 0)
+mesh = SubResource("Spoke")
+
+[node name="Spoke8" type="MeshInstance3D" parent="."]
+rotation_degrees = Vector3(120, 0, 0)
+mesh = SubResource("Spoke")
+
+[node name="Spoke9" type="MeshInstance3D" parent="."]
+rotation_degrees = Vector3(135, 0, 0)
+mesh = SubResource("Spoke")
+
+[node name="Spoke10" type="MeshInstance3D" parent="."]
+rotation_degrees = Vector3(150, 0, 0)
+mesh = SubResource("Spoke")
+
+[node name="Spoke11" type="MeshInstance3D" parent="."]
+rotation_degrees = Vector3(165, 0, 0)
+mesh = SubResource("Spoke")
