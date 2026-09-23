@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3]
+
+[sub_resource type="StandardMaterial3D" id="Material"]
+albedo_color = Color(0.4, 0.26, 0.12, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="Mesh"]
+material = SubResource("Material")
+size = Vector3(0.7, 0.7, 0.7)
+
+[sub_resource type="BoxShape3D" id="Shape"]
+size = Vector3(0.7, 0.7, 0.7)
+
+[node name="SmallCrate" type="RigidBody3D"]
+mass = 8.0
+linear_damp = 0.4
+angular_damp = 0.8
+continuous_cd = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("Mesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("Shape")

@@ -1,0 +1,143 @@
+[gd_scene load_steps=17 format=3]
+
+[ext_resource type="Script" path="res://tracks/route_foundation.gd" id="1_route"]
+
+[ext_resource type="PackedScene" path="res://systems/race/checkpoint.tscn" id="2_checkpoint"]
+
+[ext_resource type="PackedScene" path="res://systems/speed_trap/speed_trap.tscn" id="3_trap"]
+
+[ext_resource type="PackedScene" path="res://systems/race/finish_trigger.tscn" id="4_finish"]
+
+[ext_resource type="PackedScene" path="res://props/physics/oil_barrel.tscn" id="5_barrel"]
+
+[ext_resource type="PackedScene" path="res://props/physics/traffic_cone.tscn" id="6_cone"]
+
+[ext_resource type="PackedScene" path="res://props/physics/plastic_barricade.tscn" id="7_barricade"]
+
+[ext_resource type="PackedScene" path="res://props/breakable/wooden_crate.tscn" id="8_crate"]
+
+[ext_resource type="PackedScene" path="res://props/static/streetlight.tscn" id="9_lamp"]
+
+[ext_resource type="PackedScene" path="res://props/static/concrete_barrier.tscn" id="10_barrier"]
+
+[ext_resource type="Script" path="res://systems/traffic/traffic_manager.gd" id="11_traffic"]
+
+[sub_resource type="PanoramaSkyMaterial" id="SkyMaterial"]
+resource_local_to_scene = true
+
+[sub_resource type="Sky" id="Sky"]
+resource_local_to_scene = true
+radiance_size = 0
+sky_material = SubResource("SkyMaterial")
+
+[sub_resource type="Environment" id="Environment"]
+resource_local_to_scene = true
+background_mode = 1
+background_color = Color(0.006, 0.009, 0.016, 1)
+background_energy_multiplier = 0.35
+sky = SubResource("Sky")
+ambient_light_source = 3
+ambient_light_color = Color(0.3, 0.35, 0.48, 1)
+ambient_light_energy = 0.22
+reflected_light_source = 2
+
+[sub_resource type="Curve3D" id="Lane0"]
+bake_interval = 0.3
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.5, 0.6, -33, 0, 0, 0, 0, 0, 0, 2.4148, 0.6, -33.647, 0, 0, 0, 0, 0, 0, 2.1651, 0.6, -34.25, 0, 0, 0, 0, 0, 0, 1.7678, 0.6, -34.7678, 0, 0, 0, 0, 0, 0, 1.25, 0.6, -35.1651, 0, 0, 0, 0, 0, 0, 0.647, 0.6, -35.4148, 0, 0, 0, 0, 0, 0, 0, 0.6, -35.5, 0, 0, 0, 0, 0, 0, -0.647, 0.6, -35.4148, 0, 0, 0, 0, 0, 0, -1.25, 0.6, -35.1651, 0, 0, 0, 0, 0, 0, -1.7678, 0.6, -34.7678, 0, 0, 0, 0, 0, 0, -2.1651, 0.6, -34.25, 0, 0, 0, 0, 0, 0, -2.4148, 0.6, -33.647, 0, 0, 0, 0, 0, 0, -2.5, 0.6, -33, 0, 0, 0, 0, 0, 0, -2.5, 0.6, 33, 0, 0, 0, 0, 0, 0, -2.4148, 0.6, 33.647, 0, 0, 0, 0, 0, 0, -2.1651, 0.6, 34.25, 0, 0, 0, 0, 0, 0, -1.7678, 0.6, 34.7678, 0, 0, 0, 0, 0, 0, -1.25, 0.6, 35.1651, 0, 0, 0, 0, 0, 0, -0.647, 0.6, 35.4148, 0, 0, 0, 0, 0, 0, 0, 0.6, 35.5, 0, 0, 0, 0, 0, 0, 0.647, 0.6, 35.4148, 0, 0, 0, 0, 0, 0, 1.25, 0.6, 35.1651, 0, 0, 0, 0, 0, 0, 1.7678, 0.6, 34.7678, 0, 0, 0, 0, 0, 0, 2.1651, 0.6, 34.25, 0, 0, 0, 0, 0, 0, 2.4148, 0.6, 33.647, 0, 0, 0, 0, 0, 0, 2.5, 0.6, 33, 0, 0, 0, 0, 0, 0, 2.5, 0.6, -33),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 27
+
+[sub_resource type="Curve3D" id="Lane1"]
+bake_interval = 0.3
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 4, 0.6, -33, 0, 0, 0, 0, 0, 0, 4, 0.6, 33, 0, 0, 0, 0, 0, 0, 3.8637, 0.6, 34.0353, 0, 0, 0, 0, 0, 0, 3.4641, 0.6, 35, 0, 0, 0, 0, 0, 0, 2.8284, 0.6, 35.8284, 0, 0, 0, 0, 0, 0, 2, 0.6, 36.4641, 0, 0, 0, 0, 0, 0, 1.0353, 0.6, 36.8637, 0, 0, 0, 0, 0, 0, 0, 0.6, 37, 0, 0, 0, 0, 0, 0, -1.0353, 0.6, 36.8637, 0, 0, 0, 0, 0, 0, -2, 0.6, 36.4641, 0, 0, 0, 0, 0, 0, -2.8284, 0.6, 35.8284, 0, 0, 0, 0, 0, 0, -3.4641, 0.6, 35, 0, 0, 0, 0, 0, 0, -3.8637, 0.6, 34.0353, 0, 0, 0, 0, 0, 0, -4, 0.6, 33, 0, 0, 0, 0, 0, 0, -4, 0.6, -33, 0, 0, 0, 0, 0, 0, -3.8637, 0.6, -34.0353, 0, 0, 0, 0, 0, 0, -3.4641, 0.6, -35, 0, 0, 0, 0, 0, 0, -2.8284, 0.6, -35.8284, 0, 0, 0, 0, 0, 0, -2, 0.6, -36.4641, 0, 0, 0, 0, 0, 0, -1.0353, 0.6, -36.8637, 0, 0, 0, 0, 0, 0, 0, 0.6, -37, 0, 0, 0, 0, 0, 0, 1.0353, 0.6, -36.8637, 0, 0, 0, 0, 0, 0, 2, 0.6, -36.4641, 0, 0, 0, 0, 0, 0, 2.8284, 0.6, -35.8284, 0, 0, 0, 0, 0, 0, 3.4641, 0.6, -35, 0, 0, 0, 0, 0, 0, 3.8637, 0.6, -34.0353, 0, 0, 0, 0, 0, 0, 4, 0.6, -33),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 27
+
+[node name="Route01" type="Node3D"]
+script = ExtResource("1_route")
+panorama_path = "res://assets/skyboxes/panoramas/route_01_urban_panorama.jpg"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment")
+
+[node name="ImportedMapRoot" type="Node3D" parent="."]
+
+[node name="CollisionRoot" type="Node3D" parent="."]
+
+[node name="PhysicsProps" type="Node3D" parent="."]
+
+[node name="Barrel" parent="PhysicsProps" instance=ExtResource("5_barrel")]
+position = Vector3(4.8, 0.45, 22)
+
+[node name="Cone" parent="PhysicsProps" instance=ExtResource("6_cone")]
+position = Vector3(-4.8, 0.3, 10)
+
+[node name="Barricade" parent="PhysicsProps" instance=ExtResource("7_barricade")]
+position = Vector3(4.8, 0.4, -5)
+
+[node name="BreakableCrate" parent="PhysicsProps" instance=ExtResource("8_crate")]
+position = Vector3(-4.8, 0.4, -28)
+
+[node name="StaticBarrier" parent="PhysicsProps" instance=ExtResource("10_barrier")]
+position = Vector3(10, 0.5, 0)
+
+[node name="Streetlight1" parent="PhysicsProps" instance=ExtResource("9_lamp")]
+position = Vector3(7, 0, 35)
+
+[node name="Streetlight2" parent="PhysicsProps" instance=ExtResource("9_lamp")]
+position = Vector3(-7, 0, 11)
+
+[node name="Streetlight3" parent="PhysicsProps" instance=ExtResource("9_lamp")]
+position = Vector3(7, 0, -13)
+
+[node name="Streetlight4" parent="PhysicsProps" instance=ExtResource("9_lamp")]
+position = Vector3(-7, 0, -37)
+
+[node name="SpawnPoint" type="Marker3D" parent="."]
+position = Vector3(0, 1, 45)
+
+[node name="Checkpoints" type="Node3D" parent="."]
+
+[node name="Checkpoint_01" parent="Checkpoints" instance=ExtResource("2_checkpoint")]
+position = Vector3(0, 2.5, 30)
+checkpoint_index = 1
+
+[node name="Checkpoint_02" parent="Checkpoints" instance=ExtResource("2_checkpoint")]
+position = Vector3(0, 2.5, 6)
+checkpoint_index = 2
+
+[node name="Checkpoint_03" parent="Checkpoints" instance=ExtResource("2_checkpoint")]
+position = Vector3(0, 2.5, -18)
+checkpoint_index = 3
+
+[node name="Checkpoint_04" parent="Checkpoints" instance=ExtResource("2_checkpoint")]
+position = Vector3(0, 2.5, -36)
+checkpoint_index = 4
+
+[node name="SpeedTraps" type="Node3D" parent="."]
+
+[node name="SpeedTrap_01" parent="SpeedTraps" instance=ExtResource("3_trap")]
+position = Vector3(0, 2.5, 18)
+camera_id = "R01_ST_01"
+
+[node name="SpeedTrap_02" parent="SpeedTraps" instance=ExtResource("3_trap")]
+position = Vector3(0, 2.5, -24)
+camera_id = "R01_ST_02"
+
+[node name="FinishTrigger" parent="." instance=ExtResource("4_finish")]
+position = Vector3(0, 2.5, -48)
+
+[node name="TrafficPaths" type="Node3D" parent="."]
+
+[node name="TrafficLane_A" type="Path3D" parent="TrafficPaths"]
+curve = SubResource("Lane0")
+
+[node name="TrafficLane_B" type="Path3D" parent="TrafficPaths"]
+curve = SubResource("Lane1")
+
+[node name="TrafficRoot" type="Node3D" parent="."]
+script = ExtResource("11_traffic")

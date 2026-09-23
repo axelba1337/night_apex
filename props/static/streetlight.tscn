@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3]
+
+[sub_resource type="StandardMaterial3D" id="Metal"]
+albedo_color = Color(0.18, 0.18, 0.16, 1)
+
+[sub_resource type="BoxMesh" id="PoleMesh"]
+material = SubResource("Metal")
+size = Vector3(0.15, 6, 0.15)
+
+[sub_resource type="BoxShape3D" id="PoleShape"]
+size = Vector3(0.15, 6, 0.15)
+
+[node name="Streetlight" type="StaticBody3D"]
+
+[node name="Pole" type="MeshInstance3D" parent="."]
+position = Vector3(0, 3, 0)
+mesh = SubResource("PoleMesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+position = Vector3(0, 3, 0)
+shape = SubResource("PoleShape")
+
+[node name="Lamp" type="SpotLight3D" parent="."]
+position = Vector3(0, 5.8, 0)
+rotation_degrees = Vector3(-90, 0, 0)
+light_color = Color(1, 0.62, 0.24, 1)
+light_energy = 3.0
+spot_range = 14.0
+spot_angle = 70.0
+shadow_enabled = false
