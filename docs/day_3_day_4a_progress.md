@@ -1,4 +1,4 @@
-# STATIC//SHIFT Day 3 / Day 4A progress
+# NIGHT//APEX Day 3 / Day 4A progress
 
 Technical foundations implemented locally on 2026-09-23. Custom map layouts and sky
 panoramas remain pending because their source references are absent. No final artistic

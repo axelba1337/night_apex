@@ -1,4 +1,8 @@
-# STATIC//SHIFT Day 1 Progress
+# NIGHT//APEX Day 1 Progress
+
+The project is now named NIGHT//APEX. The Day 1 output examples and checklist below
+describe the historical build validated on 2026-09-22. They retain its original console
+prefix as a record. Current scripts use the NIGHT//APEX prefix.
 
 Scope: Day 1.3 through 1.8 only. Godot 4.7.2 Standard, GDScript, Jolt Physics, Forward+.
 

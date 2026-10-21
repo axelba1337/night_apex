@@ -1,8 +1,8 @@
-# STATIC//SHIFT Development Rules
+# NIGHT//APEX Development Rules
 
 ## Project
 
-STATIC//SHIFT is a small 3D arcade racing prototype.
+NIGHT//APEX is a small 3D arcade racing prototype.
 
 Engine:
 Godot 4.7.2 Standard

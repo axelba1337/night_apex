@@ -44,14 +44,14 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 72
 theme_override_colors/font_color = Color(0.2, 0.9, 0.95, 1)
-text = "STATIC//SHIFT"
+text = "NIGHT//APEX"
 horizontal_alignment = 1
 
 [node name="Subtitle" type="Label" parent="Center/Panel/Content"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
-text = "DAY 2 / ARCADE RACING PROTOTYPE"
+text = "NIGHT//APEX / ARCADE RACING PROTOTYPE"
 horizontal_alignment = 1
 custom_minimum_size = Vector2(0, 44)
 

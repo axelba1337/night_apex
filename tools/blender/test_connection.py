@@ -15,4 +15,4 @@ bpy.ops.mesh.primitive_cube_add(size=2.0, location=(0.0, 0.0, 1.0))
 test_cube = bpy.context.active_object
 test_cube.name = OBJECT_NAME
 
-print("STATIC//SHIFT: Blender Python connection works.")
+print("NIGHT//APEX: Blender Python connection works.")

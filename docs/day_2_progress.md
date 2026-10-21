@@ -1,4 +1,4 @@
-# STATIC//SHIFT Day 2 Progress
+# NIGHT//APEX Day 2 Progress
 
 Day 2 adds one shared racing loop for Sprint Run and Speed Trap Run.
 Implementation is complete. All Day 2 manual verification remains PENDING.

@@ -56,7 +56,7 @@ func _ready() -> void:
     _result_screen.retry_requested.connect(restart_race)
     _result_screen.main_menu_requested.connect(_go_to_main_menu)
     restart_race()
-    print("STATIC//SHIFT: Day 2 race loop ready.")
+    print("NIGHT//APEX: Day 2 race loop ready.")
 
 
 func restart_race() -> void:
